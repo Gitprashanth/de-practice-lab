@@ -4,7 +4,7 @@ Build bronze, silver and gold layers from `bigquery-public-data.thelook_ecommerc
 
 ## How to run
 
-In Cloud Shell, after cloning the repo (it is public, so no login is needed):
+In Cloud Shell, clone the repo (it is public, so no login is needed):
 
 ```bash
 git clone https://github.com/Gitprashanth/de-practice-lab.git

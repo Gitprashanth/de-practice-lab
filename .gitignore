@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+*.json.key
+service-account*.json
+target/
+dbt_packages/
+logs/
+.DS_Store

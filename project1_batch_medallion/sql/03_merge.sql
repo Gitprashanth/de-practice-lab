@@ -22,6 +22,27 @@ SELECT * FROM changed
 UNION ALL SELECT * FROM new_row
 UNION ALL SELECT * FROM (SELECT * FROM changed LIMIT 1);
 
+MERGE `de-practice-lab-511020.silver.orders` T
+USING (
+  SELECT * FROM `de-practice-lab-511020.silver.orders_batch_002`
+  QUALIFY ROW_NUMBER() OVER (PARTITION BY order_id ORDER BY _loaded_at DESC) = 1
+) S
+ON T.order_id = S.order_id
+   AND T.created_at >= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 90 DAY)
+WHEN MATCHED AND T.status != S.status THEN UPDATE SET
+  status = S.status,
+  shipped_at = S.shipped_at,
+  delivered_at = S.delivered_at,
+  returned_at = S.returned_at,
+  num_of_item = S.num_of_item,
+  _loaded_at = S._loaded_at,
+  _batch_id = S._batch_id
+WHEN NOT MATCHED THEN
+  INSERT (order_id, user_id, status, created_at, shipped_at, delivered_at,
+          returned_at, num_of_item, _loaded_at, _batch_id)
+  VALUES (S.order_id, S.user_id, S.status, S.created_at, S.shipped_at, S.delivered_at,
+          S.returned_at, S.num_of_item, S._loaded_at, S._batch_id);
+
 -- Step B: your turn.
 -- TODO 1: dedupe the batch first (a MERGE fails if two source rows match one target row).
 -- TODO 2: MERGE into silver.orders ON order_id. Update when matched, insert when not matched.

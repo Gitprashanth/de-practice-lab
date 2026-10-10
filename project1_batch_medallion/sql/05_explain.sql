@@ -14,12 +14,27 @@ WHERE oi.created_at >= TIMESTAMP('2019-01-01')
 GROUP BY u.country, p.category;
 
 -- Record for version 1:
---   bytes processed: ?     slot time: ?     slowest stage: ?     shuffle: ?     skew seen: ?
+-- Record for version 1:
+--   bytes processed: 10.93 MB (40 MB billed)   slot time: 19m23s (1,163 slot-seconds)
+--   slowest stage: S04 (join)   shuffle: 4.69 MB
+--   skew seen: yes, in the S02 read (max 1.37 s vs avg 48 ms)   output: 309 rows
+
 
 -- Version 2: TODO. Rewrite so each large table is filtered and reduced BEFORE the joins:
 --   - select only the columns you need,
 --   - pre-aggregate order_items to one row per (order_id, product category) or similar,
 --   - join the small tables (products, users) last.
+
+-- Record for version 2:
+--   bytes processed: 10.93 MB (same)   slot time: 32m39s (1,959 slot-seconds, +68%)
+--   shuffle: 18.12 MB (about 4x more)   output: 309 rows (same)
+--
+-- What changed and why: Version 2 was WORSE. The plan showed BigQuery already broadcast
+-- the three small tables (JOIN EACH WITH ALL), so joining first cost little. My
+-- pre-aggregation of order_items merged only 4 rows, so it removed almost nothing
+-- and added an extra shuffle stage.
+-- Lesson: test the assumption in the execution plan before "optimizing".
+
 -- Record the same numbers for version 2 and write one sentence on what changed and why.
 
 -- Questions to answer out loud:

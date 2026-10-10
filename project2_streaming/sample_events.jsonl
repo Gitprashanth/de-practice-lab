@@ -1,0 +1,9 @@
+{"event_id":"s-01","order_id":2001,"user_id":41,"status":"Processing","amount":20.00,"event_time":"2026-10-10T21:00:05Z"}
+{"event_id":"s-02","order_id":2002,"user_id":42,"status":"Shipped","amount":35.50,"event_time":"2026-10-10T21:00:40Z"}
+{"event_id":"s-03","order_id":2003,"user_id":43,"status":"Complete","amount":15.25,"event_time":"2026-10-10T21:01:10Z"}
+{"event_id":"s-04","order_id":2004,"user_id":44,"status":"Processing","amount":50.00,"event_time":"2026-10-10T21:01:55Z"}
+this line is not valid json {
+{"event_id":"s-05","order_id":2005,"user_id":40,"status":"Complete","amount":10.00,"event_time":"2026-10-10T21:02:30Z"}
+{"event_id":"s-06","user_id":41,"status":"Shipped","amount":22.00,"event_time":"2026-10-10T21:02:45Z"}
+{"event_id":"s-07","order_id":2007,"user_id":42,"status":"Cancelled","amount":18.75,"event_time":"2026-10-10T21:00:50Z"}
+{"event_id":"s-08","order_id":2008,"user_id":43,"status":"Processing","amount":60.00,"event_time":"2026-10-10T21:03:05Z"}

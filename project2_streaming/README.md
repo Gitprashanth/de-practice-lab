@@ -10,7 +10,7 @@ Start with the simplest streaming path (Pub/Sub into BigQuery), then add Beam fo
 - [x] Dedupe on `event_id` in the silver layer (Pub/Sub delivers at least once).
 - [x] Write `beam_pipeline.py`: parse JSON, validate, dead-letter output for invalid records, one-minute fixed windows, count and sum per window. (Prints results; writing them to BigQuery is not done.)
 - [x] Run locally on a small sample file (`sample_events.jsonl`).
-- [ ] Optional: run once on Dataflow, then delete the job.
+- [x] Run once on Dataflow (batch job reading from Cloud Storage); results matched the local run. Job finished by itself, nothing to delete.
 - [ ] Add architecture diagram.
 ## Concepts to be able to explain
 
@@ -53,4 +53,4 @@ Start with the simplest streaming path (Pub/Sub into BigQuery), then add Beam fo
 - Add a dead-letter topic on the subscription and alert on unacknowledged messages.
 - Partition the raw table by `publish_time`; make silver a real table.
 - Read from Pub/Sub in the Beam pipeline, write window results to BigQuery, and set allowed lateness plus a late-firing trigger.
-- So far the Beam pipeline has only run locally on a sample file.
+- Ran the same pipeline once on Dataflow as a batch job over a file in Cloud Storage. Total time was about 4 minutes, almost all of it starting and stopping the worker; the console's cost estimate was a fraction of a cent. I have not run a streaming Dataflow job reading from Pub/Sub.

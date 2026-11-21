@@ -6,12 +6,14 @@ These are learning projects on public or synthetic data, not production systems.
 
 ## Projects
 
-| # | Project | Main services | Status |
+| # | Project | What it covers | Status |
 | --- | --- | --- | --- |
-| 1 | [Batch medallion pipeline](project1_batch_medallion/) | BigQuery, SQL | [ ] |
-| 2 | [Streaming ingestion](project2_streaming/) | Pub/Sub, BigQuery subscription, Apache Beam, Dataflow | [ ] |
-| 3 | [dbt, Airflow and governed data](project3_dbt_airflow_dataplex/) | dbt, Airflow, Dataplex | [ ] |
-| 4 | [Spark and BigLake](project4_spark_biglake/) | PySpark, Cloud Storage, BigLake | [ ] |
+| 1 | [Batch medallion pipeline](project1_batch_medallion/) | BigQuery SQL: bronze, silver, gold, MERGE, query plans, cost | Done |
+| 2 | [Streaming ingestion](project2_streaming/) | Pub/Sub, BigQuery subscription, Beam, Dataflow | Done. The Dataflow run was a batch job over a file, not a streaming job |
+| 3 | [dbt, Airflow and governed data](project3_dbt_airflow_dataplex/) | dbt models and tests, Airflow DAG, lineage, data quality scan | Built. The DAG is written but not run on a live server |
+| 4 | Spark and BigLake | PySpark, BigLake tables | Planned, not started |
+
+Each project has its own README with the problem, design decisions and trade-offs.
 
 ## Dataset
 

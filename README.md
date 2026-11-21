@@ -1,8 +1,6 @@
 # DE Practice Lab
 
-Small, hands-on projects built in a personal Google Cloud sandbox to practice batch, streaming and governed-data patterns on GCP. Each project has its own README with the problem, architecture, decisions and trade-offs.
-
-These are learning projects on public or synthetic data, not production systems.
+Practice projects I built on Google Cloud to learn batch, streaming and governed-data patterns. They use sample data (BigQuery's `thelook_ecommerce`, which is synthetic). I built them with AI help. They are not production work.
 
 ## Projects
 
@@ -25,6 +23,3 @@ Each project has its own README with the problem, design decisions and trade-off
 - Work done in Cloud Shell (Python 3.12, gcloud, Docker preinstalled)
 - Bucket region: `us-central1`
 
-## Clean-up checklist
-
-After each project, delete Dataflow jobs, Dataproc clusters or batches, and Pub/Sub subscriptions you no longer need.

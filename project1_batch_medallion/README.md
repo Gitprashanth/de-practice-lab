@@ -27,8 +27,6 @@ Or paste each file into the BigQuery console query editor.
 - [x] Cost: query `INFORMATION_SCHEMA.JOBS` for top jobs by bytes billed; try dry run and `maximum_bytes_billed`. (`sql/06_cost.sql`)
 - [ ] Add architecture diagram and screenshots to `images/`.
 
-## Write-up (fill in as I build)
-
 ## Write-up
 
 **Problem:** Practice a batch pipeline on BigQuery with public e-commerce data (thelook_ecommerce): keep the raw data, clean it, build business-ready tables, and tune queries and cost. This is a sandbox project, not production.

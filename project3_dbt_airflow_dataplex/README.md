@@ -22,8 +22,6 @@ Turn Project 1 into an orchestrated, tested and traceable pipeline.
 | Consistency | Medallion layers, dbt models |
 | Freshness | Airflow schedule and alerts |
 
-## Write-up
-
 **Problem:** Turn the Project 1 batch pipeline (bronze, silver, gold) into something orchestrated, tested and traceable, on public synthetic data.
 
 **Architecture:** Airflow DAG (written, not run on a live server): quality check on silver.orders, then MERGE of a new batch into silver.orders, then `dbt build`. dbt: 4 staging views over silver, one incremental mart (`daily_revenue`, partitioned by order_date, clustered by category). Knowledge Catalog (formerly Dataplex): lineage and a data quality scan on silver.orders.
@@ -47,12 +45,3 @@ Turn Project 1 into an orchestrated, tested and traceable pipeline.
 - The DAG should be tested on a real Airflow or Composer environment.
 - Fix the MERGE simulation so Returned rows also carry a delivery date, then re-run the scan.
 
-**Problem:**
-
-**Architecture:**
-
-**Key decisions and why:**
-
-**What I saw in lineage and quality results:**
-
-**Trade-offs and what I would change in production:**

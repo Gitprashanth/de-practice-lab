@@ -19,9 +19,6 @@ Start with the simplest streaming path (Pub/Sub into BigQuery), then add Beam fo
 - Batch vs streaming trade-offs: latency, cost, complexity, correctness
 - When a BigQuery subscription is enough and Dataflow is not needed
 
-## Write-up (fill in as I build)
-
-## Write-up
 
 **Problem:** Practice ingesting a stream of order events on GCP: first the simplest path (Pub/Sub straight into BigQuery), then Beam for validation, dead-letter handling and windowing. Sandbox project with synthetic events, not production.
 

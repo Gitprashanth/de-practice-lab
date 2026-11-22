@@ -7,8 +7,8 @@ Build bronze, silver and gold layers from `bigquery-public-data.thelook_ecommerc
 In Cloud Shell, clone the repo (it is public, so no login is needed):
 
 ```bash
-git clone https://github.com/Gitprashanth/de-practice-lab.git
-cd de-practice-lab/project1_batch_medallion
+git clone https://github.com/Gitprashanth/GCP-Pipeline-Labs.git
+cd GCP-Pipeline-Labs/project1_batch_medallion
 bq query --use_legacy_sql=false < sql/00_setup.sql
 bq query --use_legacy_sql=false < sql/01_bronze.sql
 ```

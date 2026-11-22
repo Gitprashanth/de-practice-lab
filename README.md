@@ -1,4 +1,4 @@
-# DE Practice Lab
+# GCP Pipeline Labs
 
 Practice projects I built on Google Cloud to learn batch, streaming and governed-data patterns. They use sample data (BigQuery's `thelook_ecommerce`, which is synthetic). I built them with AI help. They are not production work.
 
